@@ -52,7 +52,7 @@ export default function ExpenseTracker() {
 
             <input type="text" placeholder="Label" value={label} onChange={(e) => setLabel(e.target.value)} className="w-full p-2 mb-2 rounded bg-gray-700 text-white border border-gray-600" />
 
-            <input type="number" placeholder="Amount" value={amount} onChange={(e) => setAmount(e.target.value)} className="w-full p-2 mb-2 rounded bg-gray-700 text-white border border-gray-600" />
+            <input type="number" min="1" placeholder="Amount" value={amount} onChange={(e) => setAmount(e.target.value)} className="w-full p-2 mb-2 rounded bg-gray-700 text-white border border-gray-600" />
 
             <div className="flex gap-2">
 
