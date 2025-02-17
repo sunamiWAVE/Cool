@@ -10,7 +10,7 @@ export default function ExpenseSummary({ totalSpent, totalDeposit }) {
           {
             data: [totalSpent, totalDeposit],
             backgroundColor: ['#f87171', '#60a5fa'],
-            hoverBackgroundColor: ['#ef4444', '#3b82f6'],
+            hoverBackgroundColor: ['#ef4444', '#22c55e'],
             borderColor: ['#1f2937', '#1f2937'],
             borderWidth: 4,
           },
