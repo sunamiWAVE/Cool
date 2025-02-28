@@ -120,9 +120,9 @@ export default function WaterCraftWorkshop() {
       <div className="bg-gray-200 py-24 w-full text-center text-gray-900">
         <h2 className="text-4xl font-bold">Workshop Details</h2>
         <div className="mt-12 text-xl space-y-6">
-          <p>📍 Venue: NAB (New Academic Building)</p>
-          <p>📅 Date: March 15-17, 2025</p>
-          <p>⏰ Time: 10:00 AM - 4:00 PM</p>
+          <p>📍 Venue: SAC (Student Activity Center)</p>
+          <p>📅 Date: March 15-16, 2025</p>
+          <p>⏰ Time: 9:00 AM - 12:30 PM + 3:00 PM - 6:00 PM</p>
         </div>
         <a
           initial={{ opacity: 0 }}
