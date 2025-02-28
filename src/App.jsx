@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 
 export default function WaterCraftWorkshop() {
@@ -11,7 +11,6 @@ export default function WaterCraftWorkshop() {
 
   const ref3 = useRef(null);
   const isInView3 = useInView(ref3, { once: false, amount: 0.3 });
-
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-100 flex flex-col items-center font-sans">
@@ -37,6 +36,16 @@ export default function WaterCraftWorkshop() {
           >
             Explore the future of marine robotics with hands-on experience in design and programming.
           </motion.p>
+          <motion.a
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            href="https://shorturl.at/blAVi"  // Replace with your external link
+            target="_blank"
+            className="inline-block bg-blue-500 text-white font-medium mt-10 px-10 py-3 rounded-3xl transition hover:border-1 hover:border-black-100"
+          >
+            Register Now
+          </motion.a>
         </div>
       </div>
 
@@ -48,13 +57,13 @@ export default function WaterCraftWorkshop() {
           transition={{ duration: 0.8, delay: 0.5 }}
           whileHover={{ color: "#2563EB" }}
           className="text-lg md:text-2xl pt-10 mt-6 max-w-5xl font-mono text-blue-800 tracking-wide"
-        >Join us for an <span className="text-amber-700">immersive WaterCraft Workshop </span>, where innovation meets the ocean! Dive into a hands-on experience that takes you through the design, construction, and programming of a cutting-edge robotic marine vessel.Perfect for engineering students, robotics enthusiasts, and innovators, this workshop welcomes all skill levels—no prior experience needed, just curiosity and creativity!By the end, you'll have built a fully functional robotic watercraft, capable of navigating autonomously or via remote control. You'll also gain essential programming skills, enabling your vessel to tackle real-world challenges like obstacle avoidance, path planning, and beyond.
+        >Join us for an <span className="text-amber-700">immersive WaterCraft Workshop</span>, where innovation meets the ocean! Dive into designing, building, and programming a robotic marine vessel. Perfect for all skill levels—no prior experience needed! By the end, you'll have a fully functional watercraft capable of autonomous or remote navigation, tackling real-world challenges like obstacle avoidance and path planning.
         </motion.p>
       </div>
 
       {/* Content Section with Cards */}
       <h2 className="text-4xl text-gray-900 pt-18 font-bold">What you'll learn?</h2>
-      <div className="max-w-7xl py-20 px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center bg-gray-50 text-gray-900">
+      <div ref={ref3} className="max-w-7xl py-20 px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center bg-gray-50 text-gray-900">
 
         {[
           { title: "Fundamentals of Marine Robotics", image: "/waterprof.jpg", desc: "Learn the core principles behind marine robotics and its applications." },
@@ -62,14 +71,20 @@ export default function WaterCraftWorkshop() {
           { title: "Coding the Future of Marine Robotics", image: "/nav.webp", desc: "Learn the core programming skills behind autonomous marine robots." },
 
         ].map((item, index) => (
-          <motion.div key={index} className="bg-white border border-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow" whileHover={{ scale: 1.05 }}>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView3 ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="bg-white border border-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-transform duration-300 hover:scale-[1.05]"
+          >
             <img src={item.image} alt={item.title} className="w-full h-64 object-cover" />
             <div className="p-6">
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">{item.title}</h3>
-              {/* <pre className="text-2xl font-sans font-semibold text-gray-900 mb-4">{item.title}</pre> */}
               <p className="text-gray-700">{item.desc}</p>
             </div>
           </motion.div>
+
         ))}
       </div>
 
@@ -82,7 +97,7 @@ export default function WaterCraftWorkshop() {
             animate={isInView2 ? { x: 0, opacity: 0.8 } : {}}
             transition={{ duration: 1 }}
           >
-            <img src="/game1.png" alt="Aquabots in battle" className="w-full h-auto bg-gray-50 max-w-md" />
+            <img src="/logo.png" className="w-full h-auto bg-gray-50 max-w-md" />
             <p className="mt-4 text-lg md:text-2xl text-center md:text-left text-gray-900 max-w-md">
               Enter the high-stakes world of aquatic warfare, where pirate-controlled robots battle for dominance beneath the waves.
             </p>
@@ -92,8 +107,11 @@ export default function WaterCraftWorkshop() {
             initial={{ x: 100, opacity: 0 }}
             animate={isInView2 ? { x: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <img src="/game.jpeg" className="w-full max-w-md h-auto rounded-4xl shadow-2xl blur-md hover:blur-none transition-all duration-500" />
+          >  <img
+              src="/game.jpeg" className="w-full max-w-md h-auto rounded-4xl shadow-none hover:shadow-[0_0_30px_25px_#ebe837]
+                blur-md hover:blur-none transition-all duration-500"
+            />
+
           </motion.div>
         </div>
       </div>
@@ -106,14 +124,23 @@ export default function WaterCraftWorkshop() {
           <p>📅 Date: March 15-17, 2025</p>
           <p>⏰ Time: 10:00 AM - 4:00 PM</p>
         </div>
+        <a
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          href="https://shorturl.at/blAVi"  // Replace with your external link
+          target="_blank"
+          className="inline-block bg-blue-500 text-white font-medium mt-10 px-10 py-3 rounded-3xl transition hover:bg-blue-600"
+        >
+          Register Now
+        </a>
       </div>
 
       {/* About Section */}
       <div className="w-full px-4 sm:px-10 py-20 text-center bg-gray-900 text-gray-100">
         <h2
           className="text-3xl md:text-4xl font-bold text-white"
-        >
-          About Us
+        >About Us
         </h2>
         <p
           className="mt-6 text-lg text-gray-300 max-w-3xl mx-auto"
@@ -121,7 +148,6 @@ export default function WaterCraftWorkshop() {
           WaterCraft Workshop is dedicated to educating individuals on the latest advancements in marine robotics. Our goal is to provide an engaging, hands-on experience where participants can build, test, and innovate in the field of water-based robotics.
         </p>
       </div>
-
     </div>
   );
 }
