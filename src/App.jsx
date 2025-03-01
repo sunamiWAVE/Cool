@@ -32,7 +32,7 @@ export default function WaterCraftWorkshop() {
             transition={{ duration: 1 }}
             className="text-5xl md:text-7xl font-bold text-white tracking-wide uppercase"
           >
-            Marinova Horizon
+            WaterCraft Workshop
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 50 }}
