@@ -12,6 +12,9 @@ export default function WaterCraftWorkshop() {
   const ref3 = useRef(null);
   const isInView3 = useInView(ref3, { once: false, amount: 0.3 });
 
+  const ref4 = useRef(null);
+  const isInView4 = useInView(ref4, { once: false, amount: 0.3 });
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-100 flex flex-col items-center font-sans">
       {/* Hero Section */}
@@ -19,18 +22,21 @@ export default function WaterCraftWorkshop() {
         className="relative w-full h-screen flex items-center justify-center text-center bg-cover bg-center bg-gray-900"
         style={{ backgroundImage: "url('/hero.jpeg')" }}
       >
-        <div className="absolute inset-0 bg-black/80 flex flex-col justify-center items-center px-4">
+        <div ref={ref4} className="absolute inset-0 bg-black/80 flex flex-col justify-center items-center px-4">
+          {/* sae india logo to work on ? */}
+          <img src="/saeindia.png" className="w-px h-auto bg-transparent max-w-md" />
+
           <motion.h1
             initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView4?{ opacity: 1, y: 0 }:{}}
             transition={{ duration: 1 }}
             className="text-5xl md:text-7xl font-bold text-white tracking-wide uppercase"
           >
-            WaterCraft Workshop
+            Marinova Horizon
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={isInView4?{ opacity: 1, y: 0 }:{}}
             transition={{ duration: 1, delay: 0.5 }}
             className="text-xl md:text-3xl pt-6 md:pt-10 max-w-3xl font-semibold text-blue-200"
           >
@@ -38,7 +44,7 @@ export default function WaterCraftWorkshop() {
           </motion.p>
           <motion.a
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={isInView4?{ opacity: 1 }:{}}
             transition={{ duration: 1, delay: 0.5 }}
             href="https://shorturl.at/blAVi"  // Replace with your external link
             target="_blank"
@@ -56,8 +62,8 @@ export default function WaterCraftWorkshop() {
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
           whileHover={{ color: "#2563EB" }}
-          className="text-lg md:text-2xl pt-10 mt-6 max-w-5xl font-mono text-blue-800 tracking-wide"
-        >Join us for an <span className="text-amber-700">immersive WaterCraft Workshop</span>, where innovation meets the ocean! Dive into designing, building, and programming a robotic marine vessel. Perfect for all skill levels—no prior experience needed! By the end, you'll have a fully functional watercraft capable of autonomous or remote navigation, tackling real-world challenges like obstacle avoidance and path planning.
+          className="text-lg md:text-2xl pt-10 mt-6 max-w-4xl font-poppin text-blue-800 tracking-wide"
+        >Join us for an <span className="text-red-600">immersive WaterCraft Workshop</span>, where innovation meets the ocean! Dive into designing, building, and programming a robotic marine vessel. Perfect for all skill levels—no prior experience needed! By the end, you'll have a fully functional watercraft capable of autonomous or remote navigation, tackling real-world challenges like obstacle avoidance and path planning.
         </motion.p>
       </div>
 
@@ -89,6 +95,7 @@ export default function WaterCraftWorkshop() {
       </div>
 
       {/* clash of robots */}
+      <h2 className="text-4xl text-gray-900 pt-18 font-bold">Ride the Waves, Win the Race!</h2>
       <div className="flex flex-col md:flex-row items-center justify-center mt-10 md:mt-15 mb-10 pb-10 md:pb-25 px-4">
         <div ref={ref2} className="relative z-10 flex flex-col md:flex-row w-full max-w-6xl mx-auto items-center">
           <motion.div
@@ -122,7 +129,7 @@ export default function WaterCraftWorkshop() {
         <div className="mt-12 text-xl space-y-6">
           <p>📍 Venue: SAC (Student Activity Center)</p>
           <p>📅 Date: March 15-16, 2025</p>
-          <p>⏰ Time: 9:00 AM - 12:30 PM + 3:00 PM - 6:00 PM</p>
+          <p>⏰ Time: 9:00 AM - 12:30 PM + 2:00 PM - 5:00 PM</p>
         </div>
         <a
           initial={{ opacity: 0 }}
