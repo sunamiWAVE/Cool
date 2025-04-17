@@ -402,7 +402,7 @@ export default function NewsletterWebsite() {
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
                         {filteredTrending.slice(0, 4).map((story) => (
-                            <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative"
+                            <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative border-2 border-transparent hover:border-pink-700 transition-all hover:translate-y-[-5px] hover:shadow-2xl duration-500"
                             >
                                 <Link
                                     to={`/news/${story.id}`}
@@ -423,8 +423,8 @@ export default function NewsletterWebsite() {
                                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                         />
                                     </div>
-                                    <div className="p-4">
-                                        <h3 className="font-bold mb-2 hover:underline">{story.title}</h3>
+                                    <div className="p-4 ">
+                                        <h3 className="font-bold text-xl group-hover:text-pink-500 mb-2 hover:underline">{story.title}</h3>
                                         <div className="flex items-center text-sm text-gray-500">
                                             <Clock className="h-4 w-4 mr-1" />
                                             <span>{story.date}</span>
@@ -454,7 +454,7 @@ export default function NewsletterWebsite() {
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                         {filteredTrending.slice(4, 7).map((story) => (
-                            <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative"
+                            <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative border-2 border-transparent hover:border-pink-700 transition-all hover:translate-y-[-5px] hover:shadow-2xl duration-500"
                             >
                                 <Link
                                     to={`/news/${story.id}`}
@@ -476,7 +476,7 @@ export default function NewsletterWebsite() {
                                         />
                                     </div>
                                     <div className="p-4">
-                                        <h3 className="font-bold mb-2 hover:underline">{story.title}</h3>
+                                        <h3 className="font-bold text-xl group-hover:text-pink-500 mb-2 hover:underline">{story.title}</h3>
                                         <div className="flex items-center text-sm text-gray-500">
                                             <Clock className="h-4 w-4 mr-1" />
                                             <span>{story.date}</span>
@@ -504,15 +504,19 @@ export default function NewsletterWebsite() {
                     </div>
                 </div>
                 <div className="text-center">
-                    <button className="bg-pink-100 text-pink-500 hover:bg-pink-200 mt-10 px-6 py-2 rounded-full inline-flex items-center">
-                        Explore More <ChevronRight size={16} className="ml-1" />
+                    <button className="group font-bold border-2 border-transparent bg-pink-200 text-pink-500 hover:bg-pink-200 hover:border-pink-500 hover:shadow-lg mt-10 px-6 py-2 rounded-full inline-flex items-center transition-all duration-300">
+                        Explore More
+                        <ChevronRight
+                            size={16}
+                            className="ml-1 font-bold transition-transform duration-300 group-hover:translate-x-1"
+                        />
                     </button>
                 </div>
             </section>
 
             {/* Section 4: Featured For You*/}
             <div id='Featured' className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold mb-8 text-black">Featured For You</h2>
+                <h2 className="text-3xl font-bold mb-8 text-black">Featured For You</h2>
                 <section className="bg-black text-white rounded-lg">
                     <div className="flex flex-col md:flex-row items-center gap-8">
                         {/* Image section with hover effect */}
@@ -575,8 +579,12 @@ export default function NewsletterWebsite() {
                                     brief: featuredStory.brief
                                 }}
                             >
-                                <button className="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition-colors">
-                                    Read Full Story
+                                <button className="group font-bold border-2 border-transparent bg-pink-500 hover:bg-pink-50 hover:border-pink-500 hover:text-pink-400 hover:shadow-lg mt-10 px-6 py-2 rounded-full inline-flex items-center transition-all duration-300">
+                                    Explore More
+                                    <ChevronRight
+                                        size={16}
+                                        className="ml-1 font-bold transition-transform duration-300 group-hover:translate-x-1"
+                                    />
                                 </button>
                             </Link>
                         </div>
@@ -590,6 +598,8 @@ export default function NewsletterWebsite() {
                     <h2 className="text-3xl font-bold mb-8">Future Is Here</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mb-6">
                         {futureStories.slice(0, 3).map((story) => (
+                            <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative border-2 border-transparent hover:border-pink-700 transition-all hover:translate-y-[-5px] hover:shadow-2xl duration-500"
+                            >
                             <Link
                                 key={story.id}
                                 to={`/news/${story.id}`}
@@ -600,7 +610,7 @@ export default function NewsletterWebsite() {
                                     date: story.date,
                                     publisher: story.publisher
                                 }}
-                                className="bg-white rounded-lg shadow-sm overflow-hidden group block hover:shadow-md transition-shadow" // Added hover effect
+                                className="bg-white rounded-lg overflow-hidden group block hover:shadow-md transition-shadow" // Added hover effect
                             >
                                 <div className="relative overflow-hidden h-60">
                                     <img
@@ -610,7 +620,7 @@ export default function NewsletterWebsite() {
                                     />
                                 </div>
                                 <div className="p-4">
-                                    <h3 className="font-bold text-lg mb-2 hover:underline">{story.title}</h3>
+                                    <h3 className="font-bold text-xl mb-2 hover:underline">{story.title}</h3>
                                     <div className="flex items-center text-sm text-gray-500">
                                         <span>{story.date}</span>
                                         <span className="mx-2">•</span>
@@ -618,10 +628,13 @@ export default function NewsletterWebsite() {
                                     </div>
                                 </div>
                             </Link>
+                            </div>
                         ))}
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {futureStories.slice(3, 6).map((story) => (
+                            <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative border-2 border-transparent hover:border-pink-700 transition-all hover:translate-y-[-5px] hover:shadow-2xl duration-500"
+                            >
                             <Link
                                 key={story.id}
                                 to={`/news/${story.id}`}
@@ -642,14 +655,14 @@ export default function NewsletterWebsite() {
                                     />
                                 </div>
                                 <div className="p-4">
-                                    <h3 className="font-bold text-lg mb-2 hover:underline">{story.title}</h3>
+                                    <h3 className="font-bold text-xl mb-2 hover:underline">{story.title}</h3>
                                     <div className="flex items-center text-sm text-gray-500">
                                         <span>{story.date}</span>
                                         <span className="mx-2">•</span>
                                         <span>{story.publisher}</span>
                                     </div>
                                 </div>
-                            </Link>
+                            </Link></div>
                         ))}
                     </div>
                 </div>
