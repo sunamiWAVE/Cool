@@ -24,7 +24,7 @@ export default function NewsletterWebsite() {
     ];
 
     const trendingStories = [
-
+        { id: 1, title: "Economic Summit Results", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt_VSEgJ8RFRRK_CjftxxXVXPQnSQ4UGfP5g&s", publisher: "Financial Times", date: "6h ago", filter: "Week" },
         { id: 2, title: "New Breakthrough in Quantum Computing", image: "https://postquantum.com/wp-content/uploads/2025/02/Google-Willow-Quantum-Computing-Chip.jpg", publisher: "Tech Review", date: "8h ago", filter: "Today" },
         { id: 3, title: "Global Climate Agreement Signed", image: "https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638890148/EducationHub/photos/on-thin-ice.jpg", publisher: "Environment news", date: "12h ago", filter: "Today" },
         { id: 4, title: "Medical Innovation Saves Lives", image: "https://images.unsplash.com/photo-1511174511562-5f7f18b874f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", publisher: "Health Journal", date: "1d ago", filter: "Week" },
@@ -34,8 +34,7 @@ export default function NewsletterWebsite() {
         { id: 8, title: "Technology Trends for 2025", image: "https://cdn.sanity.io/images/poftgen7/production/5ecc4edc3fa12e784fd2940da790d47e213ec225-1200x628.png?rect=1,0,1199,628&w=800&h=419&q=100&fit=max&auto=format", publisher: "Tech Insider", date: "1w ago", filter: "Month" },
         { id: 10, title: "Science Discoveries of the Year", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDa7jzOvgq8M-YPEv1QK5thXkq8j8bpmlyUA&s", publisher: "Science Today", date: "3w ago", filter: "Month" },
         { id: 11, title: "Stock Markets Reach All-Time High", image: "https://www.etmoney.com/learn/wp-content/uploads/2023/02/investing-at-market-high-1.jpg", publisher: "Financial Times", date: "1d ago", filter: "Week" },
-        { id: 9, title: "Business Strategy Evolution", image: "https://img-cdn.thepublive.com/fit-in/640x430/filters:format(webp)/indianstartupnews/media/media_files/2lf8Xp6K8MUsYAUKOULj.png", publisher: "Business Weekly", date: "2w ago", filter: "Today" },
-        { id: 1, title: "Economic Summit Results", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt_VSEgJ8RFRRK_CjftxxXVXPQnSQ4UGfP5g&s", publisher: "Financial Times", date: "6h ago", filter: "Week" },
+        { id: 9, title: "Business Strategy Evolution", image: "https://img-cdn.thepublive.com/fit-in/640x430/filters:format(webp)/indianstartupnews/media/media_files/2lf8Xp6K8MUsYAUKOULj.png", publisher: "Business Weekly", date: "2w ago", filter: "Today" }
     ];
 
     const categories = [
@@ -48,7 +47,7 @@ export default function NewsletterWebsite() {
         { name: "Tech", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR5IJQCAEYRauZjdmE94r0GCDMWT-iHszS0A&s" },
         { name: "Review", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLb99WNizvqx-Vhyvk4IrVbLFAy8NNR6XUPZUKnEOF2DjKb_Qr7QF0sRVzumObGeQP0c8&usqp=CAU" },
         { name: "Science", image: "https://www.thoughtco.com/thmb/dj4nerFEPPv_pE3D-TRLYo_b-a0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/3-D_DNA-56a09ae45f9b58eba4b20266.jpg" },
-        { name: "Artificial Intelligence", image: "https://growthtribe.io/wp-content/uploads/Chat-gpt-foto.webp" },
+        { name: "AI", image: "https://growthtribe.io/wp-content/uploads/Chat-gpt-foto.webp" },
         { name: "Elon Musk", image: "https://static01.nyt.com/images/2022/05/06/business/06musk-pitch/merlin_206424429_4e4c8791-92ac-4e41-a4be-f9e9e721a9e4-articleLarge.jpg?quality=75&auto=webp&disable=upscale" },
         { name: "Sports", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLjAeuxyDlBHYaAx0fEaRh5oF4aGtWdNQbdSjRZHDYJLBEuYc8aozgb1wbv06Fvz33DLs&usqp=CAU" },
         { name: "Politics", image: "https://i.insider.com/6793e777e7e163809a2279ba?width=700" },
@@ -75,7 +74,6 @@ export default function NewsletterWebsite() {
         { id: 6, title: "Biotechnology Extends Human Lifespan", image: "https://cdn.prod.website-files.com/5d9667bad4a41e222995e15b/648262fd2c119a16aa6cb40a_abstract.webp", publisher: "BioFuture", date: "April 11, 2025" },
     ];
 
-    // Filtered trending stories based on active tab
     const filteredTrending = trendingStories.filter(story => story.filter === activeTab);
 
     // Auto-scroll for stories in Section 1
@@ -190,10 +188,13 @@ export default function NewsletterWebsite() {
                     </div>
 
                     <div className="flex items-center space-x-4">
-                        <div className="relative">
-                            <input type="text" placeholder="Search..." className="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-pink-500" />
+                        <Link
+                            to={'/search'}
+                            state={trendingStories}
+                            className="relative">
+                            <input type="text" placeholder="Search..." className="pl-10 pr-4 py-2 rounded-full border border-gray-300 hover:outline-none hover:border-pink-500" />
                             <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                        </div>
+                        </Link>
                         <button className="bg-pink-100 text-black px-4 py-2 rounded-full hover:bg-pink-200 transition-colors">Subscribe</button>
                         <button className="border border-black px-4 py-2 rounded-full hover:bg-black hover:text-white transition-colors">Sign In</button>
                         <Menu className="md:hidden cursor-pointer" />
@@ -203,7 +204,7 @@ export default function NewsletterWebsite() {
 
             {/* Section 1: Stories + Trending */}
             <section className="pt-24 ">
-                <div className="container mx-auto px-4 ">
+                <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row ">
                         {/* Left: Story Carousel */}
                         <div className="md:w-2/3 relative overflow-hidden h-[500px]">
@@ -330,12 +331,12 @@ export default function NewsletterWebsite() {
                             style={{ ...hideScrollbarStyle, scrollBehavior: 'smooth' }}
                         >
                             {categories.map((category, index) => (
-                                <div key={index} className="inline-block mx-4 text-center">
-                                    <div className="flex flex-col items-center w-32 h-32 rounded-full overflow-hidden mb-2">
+                                <div key={index} className="inline-block mx-4 text-center group"> {/* Added group class here */}
+                                    <div className="flex flex-col items-center w-32 h-32 rounded-full overflow-hidden mb-2  hover:shadow-2xl">
                                         <img
                                             src={category.image}
                                             alt={category.name}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                                         />
                                     </div>
                                     <span className="mt-2 font-bold text-gray-800">{category.name}</span>
@@ -349,11 +350,11 @@ export default function NewsletterWebsite() {
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 mb-6">
                             {categories.map((category, index) => (
                                 <div key={index} className="text-center flex flex-col justify-center items-center">
-                                    <div className="flex flex-col items-center w-32 h-32 rounded-full overflow-hidden mb-2">
+                                    <div className="flex flex-col items-center w-32 h-32 rounded-full overflow-hidden mb-2 hover:shadow-2xl">
                                         <img
                                             src={category.image}
                                             alt={category.name}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                                         />
                                     </div>
                                     <span className="mt-2 font-bold text-gray-800">{category.name}</span>
@@ -362,18 +363,19 @@ export default function NewsletterWebsite() {
                         </div>
                     )}
 
-                    <div className="text-center mt-6">
+                    <div className="text-center mt-6 ">
                         {!categoryViewAll ? (
-                            <button
-                                onClick={handleViewAllCategories}
-                                className="bg-pink-100 text-black px-6 py-2 rounded-full hover:bg-pink-200 transition-colors"
-                            >
+                            <button onClick={handleViewAllCategories} className="group font-bold border-2 border-transparent bg-pink-200 text-pink-500 hover:bg-pink-200 hover:border-pink-500 hover:shadow-lg mt-10 px-6 py-2 rounded-full inline-flex items-center transition-all duration-300">
                                 View All
+                                <ChevronRight
+                                    size={16}
+                                    className="ml-1 font-bold transition-transform duration-300 group-hover:translate-x-1"
+                                />
                             </button>
                         ) : (
                             <button
                                 onClick={handleCollapseCategories}
-                                className="bg-gray-200 text-black px-6 py-b-2 rounded-full hover:bg-gray-300 transition-colors"
+                                className="group font-bold border-2 border-transparent bg-gray-200 text-gray-500 hover:bg-pink-200 hover:border-gray-400mt-10 px-6 py-2 rounded-full inline-flex items-center transition-all duration-300"
                             >
                                 <X className="inline-block mr-1 h-4 w-4" /> Collapse
                             </button>
@@ -401,7 +403,7 @@ export default function NewsletterWebsite() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-                        {filteredTrending.slice(0, 4).map((story) => (
+                        {filteredTrending.slice(0, 7).map((story) => (
                             <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative border-2 border-transparent hover:border-pink-700 transition-all hover:translate-y-[-5px] hover:shadow-2xl duration-500"
                             >
                                 <Link
@@ -450,57 +452,6 @@ export default function NewsletterWebsite() {
                             </div>
                         ))}
 
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        {filteredTrending.slice(4, 7).map((story) => (
-                            <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative border-2 border-transparent hover:border-pink-700 transition-all hover:translate-y-[-5px] hover:shadow-2xl duration-500"
-                            >
-                                <Link
-                                    to={`/news/${story.id}`}
-                                    key={story.id}
-                                    state={{
-                                        title: story.title,
-                                        description: story.description,
-                                        image: story.image,
-                                        date: story.date,
-                                        publisher: story.publisher
-                                    }}
-                                    className="block"
-                                >
-                                    <div className="relative overflow-hidden h-48">
-                                        <img
-                                            src={story.image}
-                                            alt={story.title}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        />
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="font-bold text-xl group-hover:text-pink-500 mb-2 hover:underline">{story.title}</h3>
-                                        <div className="flex items-center text-sm text-gray-500">
-                                            <Clock className="h-4 w-4 mr-1" />
-                                            <span>{story.date}</span>
-                                            <span className="mx-2">•</span>
-                                            <span>{story.publisher}</span>
-                                        </div>
-                                    </div>
-                                </Link>
-
-                                {/* Bookmark button outside Link to prevent navigation when clicking */}
-                                <button
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        toggleBookmark(story.id);
-                                    }}
-                                    className="absolute top-2 right-2 bg-white bg-opacity-70 p-1.5 rounded-full z-10"
-                                >
-                                    {bookmarkedStories[story.id] ?
-                                        <BookmarkCheck className="h-5 w-5 text-pink-500" /> :
-                                        <Bookmark className="h-5 w-5" />
-                                    }
-                                </button>
-                            </div>
-                        ))}
                     </div>
                 </div>
                 <div className="text-center">
@@ -597,72 +548,38 @@ export default function NewsletterWebsite() {
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold mb-8">Future Is Here</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mb-6">
-                        {futureStories.slice(0, 3).map((story) => (
+                        {futureStories.slice(0, 6).map((story) => (
                             <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative border-2 border-transparent hover:border-pink-700 transition-all hover:translate-y-[-5px] hover:shadow-2xl duration-500"
                             >
-                            <Link
-                                key={story.id}
-                                to={`/news/${story.id}`}
-                                state={{
-                                    title: story.title,
-                                    description: story.description,
-                                    image: story.image,
-                                    date: story.date,
-                                    publisher: story.publisher
-                                }}
-                                className="bg-white rounded-lg overflow-hidden group block hover:shadow-md transition-shadow" // Added hover effect
-                            >
-                                <div className="relative overflow-hidden h-60">
-                                    <img
-                                        src={story.image}
-                                        alt={story.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="font-bold text-xl mb-2 hover:underline">{story.title}</h3>
-                                    <div className="flex items-center text-sm text-gray-500">
-                                        <span>{story.date}</span>
-                                        <span className="mx-2">•</span>
-                                        <span>{story.publisher}</span>
+                                <Link
+                                    key={story.id}
+                                    to={`/news/${story.id}`}
+                                    state={{
+                                        title: story.title,
+                                        description: story.description,
+                                        image: story.image,
+                                        date: story.date,
+                                        publisher: story.publisher
+                                    }}
+                                    className="bg-white rounded-lg overflow-hidden group block transition-shadow" // Added hover effect
+                                >
+                                    <div className="relative overflow-hidden h-60">
+                                        <img
+                                            src={story.image}
+                                            alt={story.title}
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        />
                                     </div>
-                                </div>
-                            </Link>
+                                    <div className="p-4">
+                                        <h3 className="font-bold text-xl mb-2 hover:underline">{story.title}</h3>
+                                        <div className="flex items-center text-sm text-gray-500">
+                                            <span>{story.date}</span>
+                                            <span className="mx-2">•</span>
+                                            <span>{story.publisher}</span>
+                                        </div>
+                                    </div>
+                                </Link>
                             </div>
-                        ))}
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {futureStories.slice(3, 6).map((story) => (
-                            <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative border-2 border-transparent hover:border-pink-700 transition-all hover:translate-y-[-5px] hover:shadow-2xl duration-500"
-                            >
-                            <Link
-                                key={story.id}
-                                to={`/news/${story.id}`}
-                                state={{
-                                    title: story.title,
-                                    description: story.description,
-                                    image: story.image,
-                                    date: story.date,
-                                    publisher: story.publisher
-                                }}
-                                className="bg-white rounded-lg shadow-sm overflow-hidden group block hover:shadow-md transition-shadow" // Added hover effect
-                            >
-                                <div className="relative overflow-hidden h-60">
-                                    <img
-                                        src={story.image}
-                                        alt={story.title}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="font-bold text-xl mb-2 hover:underline">{story.title}</h3>
-                                    <div className="flex items-center text-sm text-gray-500">
-                                        <span>{story.date}</span>
-                                        <span className="mx-2">•</span>
-                                        <span>{story.publisher}</span>
-                                    </div>
-                                </div>
-                            </Link></div>
                         ))}
                     </div>
                 </div>
